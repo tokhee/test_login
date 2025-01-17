@@ -1,8 +1,5 @@
 {
-  "buildCommand": "bundle install && bundle exec rails assets:precompile",
-  "outputDirectory": "public",
-  "framework": "ruby",
-  "installCommand": "bundle install",
+  "version": 2,
   "builds": [
     {
       "src": "api/index.rb",
@@ -16,6 +13,8 @@
     }
   ],
   "env": {
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production",
     "BUNDLE_DEPLOYMENT": "1",
     "BUNDLE_WITHOUT": "development:test"
   }
