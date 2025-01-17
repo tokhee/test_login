@@ -15,7 +15,8 @@
           "Gemfile.lock",
           "config.ru",
           "Rakefile"
-        ]
+        ],
+        "buildCommand": "apt-get update && apt-get install -y postgresql-client libpq-dev && bundle install"
       }
     }
   ],
@@ -30,6 +31,7 @@
     "RACK_ENV": "production",
     "BUNDLE_DEPLOYMENT": "1",
     "BUNDLE_WITHOUT": "development:test",
-    "PORT": "3000"
+    "PORT": "3000",
+    "BUNDLE_BUILD__PG": "--with-pg-config=/usr/bin/pg_config"
   }
 } 
