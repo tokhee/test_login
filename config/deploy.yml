@@ -1,0 +1,55 @@
+# Name of your application. Used to uniquely configure containers.
+service: login_app
+
+# Name of the container image.
+image: ghcr.io/yourusername/login_app
+
+# Deploy to these servers.
+servers:
+  web:
+    hosts:
+      - your.server.ip.address
+      
+proxy:
+  ssl: true
+  host: your-domain.com
+
+# Credentials for your image host.
+registry:
+  server: ghcr.io
+  username: 
+    - GITHUB_USER
+  password:
+    - GITHUB_TOKEN
+
+# Inject ENV variables into containers (secrets come from .kamal/secrets).
+env:
+  secret:
+    - RAILS_MASTER_KEY
+  clear:
+    RAILS_LOG_LEVEL: info
+    SOLID_QUEUE_IN_PUMA: true
+
+# Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
+# "bin/kamal logs -r job" will tail logs from the first server in the job section.
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
+
+
+# Use a persistent storage volume for sqlite database files and local Active Storage files.
+# Recommended to change this to a mounted volume path that is backed up off server.
+volumes:
+  - "login_app_storage:/rails/storage"
+
+
+# Bridge fingerprinted assets, like JS and CSS, between versions to avoid
+# hitting 404 on in-flight requests. Combines all files from new and old
+# version inside the asset_path.
+asset_path: /rails/public/assets
+
+# Configure the image builder.
+builder:
+  multiarch: false

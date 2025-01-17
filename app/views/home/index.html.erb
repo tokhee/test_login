@@ -1,0 +1,13 @@
+<div class="mx-auto max-w-sm">
+  <h1 class="text-2xl font-bold mb-4">Welcome to LoginApp</h1>
+  
+  <% if current_user %>
+    <p>You are logged in as <%= current_user.email %></p>
+    <%= button_to "Logout", logout_path, method: :delete, class: "mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" %>
+  <% else %>
+    <div class="space-x-4">
+      <%= link_to "Login", login_path, class: "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" %>
+      <%= link_to "Sign Up", sign_up_path, class: "px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600" %>
+    </div>
+  <% end %>
+</div> 
