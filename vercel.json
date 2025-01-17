@@ -2,20 +2,34 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/index.rb",
-      "use": "@vercel/ruby"
+      "src": "config.ru",
+      "use": "@vercel/ruby",
+      "config": {
+        "bundle": true,
+        "includeFiles": [
+          "config/**/*",
+          "app/**/*",
+          "db/**/*",
+          "public/**/*",
+          "Gemfile",
+          "Gemfile.lock",
+          "config.ru",
+          "Rakefile"
+        ]
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "api/index.rb"
+      "dest": "config.ru"
     }
   ],
   "env": {
     "RAILS_ENV": "production",
     "RACK_ENV": "production",
     "BUNDLE_DEPLOYMENT": "1",
-    "BUNDLE_WITHOUT": "development:test"
+    "BUNDLE_WITHOUT": "development:test",
+    "PORT": "3000"
   }
 } 

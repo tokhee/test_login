@@ -63,5 +63,5 @@ group :test do
 end
 
 gem "pg"
-gem "tailwindcss-rails"   
-gem "webrick" 
+gem "tailwindcss-rails"
+gem "webrick"
