@@ -33,6 +33,8 @@
     "RACK_ENV": "production",
     "BUNDLE_DEPLOYMENT": "1",
     "BUNDLE_WITHOUT": "development:test",
-    "PORT": "3000"
+    "PORT": "3000",
+    "RAILS_MASTER_KEY": "@rails_master_key",
+    "DATABASE_URL": "@database_url"
   }
 } 
