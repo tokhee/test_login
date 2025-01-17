@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "config.ru",
-      "use": "@vercel/ruby",
+      "use": "@vercel/ruby@2.0.0",
       "config": {
         "bundle": true,
         "includeFiles": [
@@ -15,8 +15,7 @@
           "Gemfile.lock",
           "config.ru",
           "Rakefile"
-        ],
-        "buildCommand": "apt-get update && apt-get install -y postgresql-client libpq-dev libyaml-dev && bundle config build.pg --with-pg-config=/usr/bin/pg_config && bundle config build.psych --with-libyaml-dir=/usr/lib && bundle install"
+        ]
       }
     }
   ],
