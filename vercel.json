@@ -16,7 +16,7 @@
           "config.ru",
           "Rakefile"
         ],
-        "buildCommand": "apt-get update && apt-get install -y postgresql-client libpq-dev && bundle install"
+        "buildCommand": "apt-get update && apt-get install -y postgresql-client libpq-dev libyaml-dev && bundle config build.pg --with-pg-config=/usr/bin/pg_config && bundle config build.psych --with-libyaml-dir=/usr/lib && bundle install"
       }
     }
   ],
@@ -31,7 +31,6 @@
     "RACK_ENV": "production",
     "BUNDLE_DEPLOYMENT": "1",
     "BUNDLE_WITHOUT": "development:test",
-    "PORT": "3000",
-    "BUNDLE_BUILD__PG": "--with-pg-config=/usr/bin/pg_config"
+    "PORT": "3000"
   }
 } 
