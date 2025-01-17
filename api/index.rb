@@ -1,3 +1,5 @@
+require 'webrick'
 require_relative '../config/environment'
 
-Handler = Rails.application 
+Handler = Rack::Handler::WEBrick
+Handler.run Rails.application, Port: ENV.fetch('PORT', 3000) 
