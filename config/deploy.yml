@@ -2,13 +2,13 @@
 service: login_app
 
 # Name of the container image.
-image: ghcr.io/yourusername/login_app
+image: ghcr.io/YOUR_USERNAME/login_app
 
 # Deploy to these servers.
 servers:
   web:
     hosts:
-      - your.server.ip.address
+      - YOUR_SERVER_IP
       
 proxy:
   ssl: true
