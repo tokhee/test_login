@@ -4,6 +4,13 @@
   <% if current_user %>
     <p>You are logged in as <%= current_user.email %></p>
     <%= button_to "Logout", logout_path, method: :delete, class: "mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600" %>
+    <div class="mt-4">
+        <div id="phone-number">phone number
+            <%= current_user.phone_number %>
+        </div>
+        <div id="email">email</div>
+        <%= current_user.email %>
+    </div>
   <% else %>
     <div class="space-x-4">
       <%= link_to "Login", login_path, class: "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" %>
