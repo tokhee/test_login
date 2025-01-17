@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "config.ru",
-      "use": "@vercel/ruby@2.0.0",
+      "use": "@vercel/ruby",
       "config": {
         "bundle": true,
         "includeFiles": [
@@ -15,7 +15,10 @@
           "Gemfile.lock",
           "config.ru",
           "Rakefile"
-        ]
+        ],
+        "ruby": {
+          "version": "3.3.0"
+        }
       }
     }
   ],
