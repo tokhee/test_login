@@ -41,7 +41,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use PostgreSQL as the database
-gem "pg", "~> 1.4.0"
+gem "pg", "~> 1.5.9"
 
 # Use YAML parsing
 gem "psych", "~> 4.0"
